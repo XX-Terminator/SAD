@@ -36,6 +36,7 @@ while play == True:
         s.send(posiciones_Fichas)                                        #enviamos al host la informacion
 
         if jugador.ganar("O") == True or jugador.empate() == True:
+            jugador.tablero()
             break
 
         print(f"\nWaiting for the rival to move his token...")
