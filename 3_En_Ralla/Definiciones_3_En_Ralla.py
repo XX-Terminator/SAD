@@ -49,11 +49,11 @@ class Tres_En_Ralla():
             for i in range(1,3,1):
                 if fila == "i":    
                     if col == "1":
-                        posTablero = 3i-3
+                        posTablero = 3*i-3
                     elif col == "2":
-                        posTablero = 3i-2
+                        posTablero = 3*i-2
                     elif col == "3":
-                         posTablero = 3i-1
+                         posTablero = 3*i-1
             if self.Fichas_en_Tablero[posTablero] == " ":
                 ocupado=False
                 self.Fichas_en_Tablero[posTablero] = self.ficha         #coloca la fitxa del jugador q crida la funcio
