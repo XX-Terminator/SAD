@@ -23,7 +23,7 @@ while play == True:
 
         jugador.print_turno()
         jugador.tablero()
-        jugador.colocarFitxa()
+        jugador.colocarFixa()
         jugador.tablero()                                               #Dibujamos el tablero 
 
         simbolX = pickle.dumps(jugador.Fichas_en_Tablero)               #selecciona la lista de fichas en el tablero para convertirla en una secuencia de bytes, para poder enviarla
