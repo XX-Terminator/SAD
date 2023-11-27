@@ -47,7 +47,7 @@ class Tres_En_Ralla():
             posTablero = 0
 
             for i in range(1,4,1):
-                if fila == "i":    
+                if int(fila) == "i":    
                     if col == "1":
                         posTablero = 3*i-3
                     elif col == "2":
