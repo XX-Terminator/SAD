@@ -44,8 +44,6 @@ class Tres_En_Ralla():
             print("Place The Token\n")
             col= input(f"Col: ")
             fila=input(f"Fila: ")
-            posTablero = 0
-
             for i in range(1,4,1):
                 if int(fila) == "i":    
                     if col == "1":
