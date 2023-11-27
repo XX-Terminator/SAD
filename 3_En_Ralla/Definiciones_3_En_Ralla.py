@@ -38,7 +38,7 @@ class Tres_En_Ralla():
         print(fila)
         print("      -----------")
 
-    def colocarFitxa(self):
+    def colocarFixa(self):
         ocupado=True
         while ocupado ==True:
             print("Place The Token\n")
