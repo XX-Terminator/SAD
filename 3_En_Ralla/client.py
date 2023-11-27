@@ -1,17 +1,13 @@
 import socket 
 import pickle 
-
 from Definiciones_3_En_Ralla import Tres_En_Ralla
 
 HOST = '127.0.0.1'                                                      #dirección IP del localhost
 PORT = 1024                                                             #Puerto
-
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                   #Tipo de direción IP: AF_INET = IPv4; protocolo socket: SOCK_STREAM = TCP
 s.connect((HOST, PORT))                                                 #connexión con el host
 print(f"\nConnected to {s.getsockname()}!")
-
 jugador = Tres_En_Ralla("O")
-
 play = True
 
 while play == True:
@@ -23,7 +19,6 @@ while play == True:
     posiciones_Fichas = s.recv(1024)
     posiciones_Fichas = pickle.loads(posiciones_Fichas)                       
     jugador.actualitza_Tablero(posiciones_Fichas)
-
 
     while jugador.ganar("O") == False and jugador.ganar("X") == False and jugador.empate() == False:
       
@@ -39,7 +34,7 @@ while play == True:
             break
 
         print(f"\nWaiting for the rival to move his token...")
-        act_fichas_tablero = s.recv(1024)
+        act_fichas_tablero = s.recv(2048)
         act_fichas_tablero = pickle.loads(act_fichas_tablero)              #coge la secuencia de bytes y convertirla en un objeto
         jugador.actualitza_Tablero(act_fichas_tablero)
         
@@ -47,7 +42,7 @@ while play == True:
     jugador.print_resultado()
 
     print(f"Waiting for the rival's response...")                   
-    venganza_rival = s.recv(1024)                                           #recivimos la respuesta del Host
+    venganza_rival = s.recv(2048)                                           #recivimos la respuesta del Host
     venganza_rival = pickle.loads(venganza_rival)                           #coge la secuencia de bytes y la converte en un objeto
     venganza = ""
 
@@ -68,5 +63,4 @@ while play == True:
         play = False
 
 enter = input(f"\nThank You For Playing!!\nPress ENTER to skip...\n")
-
 s.close()
