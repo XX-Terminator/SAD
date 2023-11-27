@@ -40,21 +40,26 @@ class Tres_En_Ralla():
 
     def colocarFixa(self):
         ocupado=True
-        while ocupado ==True:
+        pos_valida=False
+        while ocupado ==True or pos_valida==False:
             print("Place The Token\n")
             col= input(f"Col: ")
             fila=input(f"Fila: ")
             for i in range(1,4,1):
-                if int(fila) == "i":    
+                if int(fila) == i:    
                     if col == "1":
-                        posTablero = 3*i-3
+                       posTablero = 3*i-3
+                       pos_valida=True
                     elif col == "2":
                         posTablero = 3*i-2
+                        pos_valida=True
                     elif col == "3":
                          posTablero = 3*i-1
-            if self.Fichas_en_Tablero[posTablero] == " ":
-                ocupado=False
-                self.Fichas_en_Tablero[posTablero] = self.ficha         #coloca la fitxa del jugador q crida la funcio
+                         pos_valida=True
+            if pos_valida==True:
+                if self.Fichas_en_Tablero[posTablero] == " ":
+                    ocupado=False
+                    self.Fichas_en_Tablero[posTablero] = self.ficha         #coloca la fitxa del jugador q crida la funcio
 
     def actualitza_Tablero(self, nuevas_Fichas_en_Tablero):             #actualiza la llista 
         for i in range(9):
