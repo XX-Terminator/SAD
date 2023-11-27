@@ -29,15 +29,15 @@ while play == True:
         simbolX = pickle.dumps(jugador.Fichas_en_Tablero)               #selecciona la lista de fichas en el tablero para convertirla en una secuencia de bytes, para poder enviarla
         socket_client.send(simbolX)                                     #enviamos al host la informacion
 
-        if jugador.ganar("X") == True or jugador.empate() == True:      #si hay empate o victoria salimos del bucle, porque se ha acabado el juego
-          jugador.tablero()  
+        if jugador.ganar("X") == True or jugador.empate() == True:      #si hay empate o victoria salimos del bucle, porque se ha acabado el juego  
           break
 
         print(f"\nWaiting for the rival to move his token...")
         simbolO = socket_client.recv(1024)
         simbolO = pickle.loads(simbolO)
         jugador.actualitza_Tablero(simbolO)
-
+    
+    jugador.tablero()
     jugador.print_resultado()
 
     venganza = jugador.input_cont_jugando()                         
