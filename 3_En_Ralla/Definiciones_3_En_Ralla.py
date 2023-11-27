@@ -15,7 +15,7 @@ class Tres_En_Ralla():
         print(f"\n     It's you turn!")
     
     def tablero(self):                                                  #Forma del tablero
-        print("\n       X   Y   Z")
+        print("\n       1   2   3")
         print("      -----------")
    
         fila = "   1 | " + self.Fichas_en_Tablero[0]
@@ -46,28 +46,14 @@ class Tres_En_Ralla():
             fila=input(f"Fila: ")
             posTablero = 0
 
-            if fila == "1":
-                if col == "X":
-                    posTablero = 0
-                elif col == "Y":
-                    posTablero = 1
-                elif col == "Z":
-                 posTablero = 2
-            elif fila == "2":
-                if col == "X":
-                    posTablero = 3
-                elif col == "Y":
-                    posTablero = 4
-                elif col == "Z":
-                   posTablero = 5
-            elif fila == "3":
-                if col == "X":
-                    posTablero = 6
-                elif col == "Y":
-                    posTablero = 7
-                elif col == "Z":
-                    posTablero = 8
-
+            for i in range(1,3,1):
+                if fila == "i":    
+                    if col == "1":
+                        posTablero = 3i-3
+                    elif col == "2":
+                        posTablero = 3i-2
+                    elif col == "3":
+                         posTablero = 3i-1
             if self.Fichas_en_Tablero[posTablero] == " ":
                 ocupado=False
                 self.Fichas_en_Tablero[posTablero] = self.ficha         #coloca la fitxa del jugador q crida la funcio
