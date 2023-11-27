@@ -3,11 +3,11 @@ import pickle
 
 from Definiciones_3_En_Ralla import Tres_En_Ralla
 
-HOST = '127.0.0.1'                                                  #dirección IP del localhost
-PORT = 1024                                                         #Puerto
+HOST = '127.0.0.1'                                                      #dirección IP del localhost
+PORT = 1024                                                             #Puerto
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)               #Tipo de direción IP: AF_INET = IPv4; protocolo socket: SOCK_STREAM = TCP
-s.connect((HOST, PORT))                                             #connexión con el host
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                   #Tipo de direción IP: AF_INET = IPv4; protocolo socket: SOCK_STREAM = TCP
+s.connect((HOST, PORT))                                                 #connexión con el host
 print(f"\nConnected to {s.getsockname()}!")
 
 jugador = Tres_En_Ralla("O")
@@ -32,23 +32,23 @@ while play == True:
         jugador.colocarFixa()
         jugador.tablero()
 
-        posiciones_Fichas = pickle.dumps(jugador.Fichas_en_Tablero)      #selecciona la lista de fichas en el tablero para convertirla en una secuencia de bytes, para poder enviarla
-        s.send(posiciones_Fichas)                                        #enviamos al host la informacion
+        act_fichas_tablero = pickle.dumps(jugador.Fichas_en_Tablero)      #selecciona la lista de fichas en el tablero para convertirla en una secuencia de bytes, para poder enviarla
+        s.send(act_fichas_tablero)                                        #enviamos al host la informacion
 
         if jugador.ganar("O") == True or jugador.empate() == True:
             break
 
         print(f"\nWaiting for the rival to move his token...")
-        simbolX = s.recv(1024)
-        simbolX = pickle.loads(simbolX)                                 #coge la secuencia de bytes y convertirla en un objeto
-        jugador.actualitza_Tablero(simbolX)
+        act_fichas_tablero = s.recv(1024)
+        act_fichas_tablero = pickle.loads(act_fichas_tablero)              #coge la secuencia de bytes y convertirla en un objeto
+        jugador.actualitza_Tablero(act_fichas_tablero)
         
     jugador.tablero()
     jugador.print_resultado()
 
     print(f"Waiting for the rival's response...")                   
-    venganza_rival = s.recv(1024)                                       #recivimos la respuesta del Host
-    venganza_rival = pickle.loads(venganza_rival)                       #coge la secuencia de bytes y la converte en un objeto
+    venganza_rival = s.recv(1024)                                           #recivimos la respuesta del Host
+    venganza_rival = pickle.loads(venganza_rival)                           #coge la secuencia de bytes y la converte en un objeto
     venganza = ""
 
     if venganza_rival == "Yes":
