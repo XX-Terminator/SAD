@@ -67,6 +67,6 @@ while play == True:
         print(f"\nThe rival does not want revenge, he/she is a loser.")
         play = False
 
-spacer = input(f"\nThank You For Playing!!\nPress ENTER to skip...\n")
+espacio = input(f"\nThank You For Playing!!\nPress ENTER to skip...\n")
 
 s.close()
