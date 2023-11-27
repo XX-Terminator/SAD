@@ -1,8 +1,6 @@
-
 class Tres_En_Ralla():
 
-    def __init__(self, ficha):                                          #Inicializamos las varibles iniciales de la clase 
-        
+    def __init__(self, ficha):                                          #Inicializamos las varibles iniciales de la clase  
         self.Fichas_en_Tablero = []
         for i in range(9):                          
             self.Fichas_en_Tablero.append(" ") 
@@ -59,50 +57,45 @@ class Tres_En_Ralla():
             if pos_valida==True:
                 if self.Fichas_en_Tablero[posTablero] == " ":
                     ocupado=False
-                    self.Fichas_en_Tablero[posTablero] = self.ficha         #coloca la fitxa del jugador q crida la funcio
+                    self.Fichas_en_Tablero[posTablero] = self.ficha         #coloca la fitxa del jugador que llama a la función
 
-    def actualitza_Tablero(self, nuevas_Fichas_en_Tablero):             #actualiza la llista 
+    def actualitza_Tablero(self, nuevas_Fichas_en_Tablero):                 #actualiza la llista 
         for i in range(9):
             self.Fichas_en_Tablero[i] = nuevas_Fichas_en_Tablero[i]
 
-
-    def ganar(self, ficha):                                             #función que devuelve True si ganas y false si no                           
+    def ganar(self, ficha):                                                 #función que devuelve True si ganas y False si no                           
         vec = []                                            
-        for i in range(9):                                              #añadimos los simbolos al vector vec para comprovar si se da alguna combinación del 3 en ralla
+        for i in range(9):                                                  #añadimos los simbolos al vector vec para comprovar si se da alguna combinación del 3 en ralla
             vec.append(self.Fichas_en_Tablero[i])                 
         sym = ficha
-        for i in range(3):                                              #Combinación filas
+        for i in range(3):                                                  #Combinación filas
             if vec[3*i] == sym and vec[3*i+1] == sym and vec[3*i+2] == sym:                     
                 return True
-        for i in range(3):                                              #Combinación columnas
+        for i in range(3):                                                  #Combinación columnas
             if vec[i] == sym and vec[i+3] == sym and vec[i+6] == sym:
                 return True
-        for i in range(2):                                              #Combinación diagonales
+        for i in range(2):                                                  #Combinación diagonales
             if vec[2*i] == sym and vec[4] == sym and vec[8-2*i] == sym:
                 return True    
-        
-        return False                                                    #Si no hay ninguna combinación, se devuelve False
+        return False                                                        #Si no hay ninguna combinación, se devuelve False
 
-    def tablero_lleno(self):                                            #Nos indica si el tablero esta lleno 
+    def tablero_lleno(self):                                                #Nos indica si el tablero esta lleno 
         for i in range(9):
             if  self.Fichas_en_Tablero[i] == " ":
                 return False
         else:
-            return True                                                 #Quedan aun huecos vacios
+            return True                                                     #Quedan aun huecos vacios
 
-    def empate(self):                                                   #Determina si hay empate
+    def empate(self):                                                       #Determina si hay empate
         if self.tablero_lleno()==True and self.ganar("X")==False  and self.ganar("O")== False:
             return True
         else:
             return False
     
-    def reiniciar_juego(self):                                          #Reinicio del tablero para volver al jugar
+    def reiniciar_juego(self):                                              #Reinicio del tablero para volver al jugar
         for i in range(9):
             self.Fichas_en_Tablero[i] = " "
-
     
-    
-
     def print_resultado(self):
         if self.ganar(self.ficha) == True:
             print(f"\nYou are the WINNER! CONGRATULATIONS!")
@@ -118,4 +111,3 @@ class Tres_En_Ralla():
             if respuesta =="Yes" or respuesta =="No":
                 respuesta_valida=True
         return respuesta
-    
