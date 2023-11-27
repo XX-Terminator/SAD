@@ -30,7 +30,8 @@ while play == True:
         socket_client.send(simbolX)                                     #enviamos al host la informacion
 
         if jugador.ganar("X") == True or jugador.empate() == True:      #si hay empate o victoria salimos del bucle, porque se ha acabado el juego
-            break
+          jugador.tablero()  
+          break
 
         print(f"\nWaiting for the rival to move his token...")
         simbolO = socket_client.recv(1024)
