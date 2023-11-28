@@ -16,7 +16,7 @@ while play == True:
     jugador.tablero()
 
     print(f"\nWaiting for the rival to move his token...")
-    posiciones_Fichas = s.recv(1024)
+    posiciones_Fichas = s.recv(2048)
     posiciones_Fichas = pickle.loads(posiciones_Fichas)                       
     jugador.actualitza_Tablero(posiciones_Fichas)
 
