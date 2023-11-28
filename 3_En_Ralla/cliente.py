@@ -6,7 +6,7 @@ HOST = '127.0.0.1'                                                      #direcci
 PORT = 1024                                                             #Puerto
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                   #Tipo de direción IP: AF_INET = IPv4; protocolo socket: SOCK_STREAM = TCP
 s.connect((HOST, PORT))                                                 #connexión con el host
-print(f"\nConnected to {s.getsockname()}!")
+print(f"\nConnected to {s.getsockname()}")
 jugador = Tres_En_Ralla("O")
 play = True
 
