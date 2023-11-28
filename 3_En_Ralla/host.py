@@ -15,7 +15,7 @@ play = True                                                                     
 while play == True:
 
     jugador.welcoming()
-    while jugador.ganar("X") == False and jugador.ganar("O") == False and jugador.empate() == False:
+    while jugador.empate() == False and jugador.ganar("O") == False and jugador.ganar("X") == False:
 
         jugador.print_turno()
         jugador.tablero()
