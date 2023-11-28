@@ -20,7 +20,7 @@ while play == True:
     posiciones_Fichas = pickle.loads(posiciones_Fichas)                       
     jugador.actualitza_Tablero(posiciones_Fichas)
 
-    while jugador.ganar("O") == False and jugador.ganar("X") == False and jugador.empate() == False:
+    while jugador.empate() == False and jugador.ganar("X") == False and jugador.ganar("O") == False:
       
         jugador.print_turno()
         jugador.tablero()
