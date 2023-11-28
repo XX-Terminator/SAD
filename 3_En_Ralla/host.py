@@ -9,7 +9,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                           
 s.bind((HOST, PORT))                                            
 s.listen(5)                                    
 socket_client, direccion_cliente = s.accept()                                   #aceptamos la conexión con el cliente
-print(f"\nConnected to {direccion_cliente}!")
+print(f"\nConnected to {direccion_cliente}")
 jugador = Tres_En_Ralla("X")
 play = True                                                                     #Esta variable nos permite jugar
 while play == True:
