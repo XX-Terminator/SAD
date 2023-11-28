@@ -6,13 +6,13 @@ public class Console implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         switch(arg.toString()){
-            case "\033[D":                          //Left
+            case "\033[D":                          
                 System.out.print("\033[D");
             break;
-            case "\033[C":                          //Right
+            case "\033[C":                         
                 System.out.print("\033[C");
             break;
-            case "\033[P":                          //Delete
+            case "\033[P":                          
                 System.out.print("\033[P");
             break;
             default:
