@@ -15,6 +15,7 @@ Versió del xat amb Sockets i Threads.
 P3:
 
 Versió del xat amb interfície gràfica utilitzant la llibrería Swing.
+Opcional Servidor NIO
 
 Proyecto 3 en ralla:
 
